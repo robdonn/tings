@@ -1,0 +1,16 @@
+{
+  "name": "tings",
+  "version": "1.0.0",
+  "description": "Tings to do.",
+  "main": "index.js",
+  "repository": "git@github.com:robdonn/tings.git",
+  "author": "Robert Donnelly <dev@robdonn.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  }
+}
