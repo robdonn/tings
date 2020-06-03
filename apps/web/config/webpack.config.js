@@ -1,24 +1,30 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, '..', 'dist'),
+  entry: {
+    tings: './src/index.js',
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
+  output: {
+    filename: '[name].[hash].js',
   },
   plugins: [
-    new CleanWebpackPlugin({
-      cleanStaleWebpackAssets: false,
-    }),
     new HtmlWebpackPlugin({
       title: 'Tings',
+      template: './public/index.html',
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+    ],
+  },
 };
