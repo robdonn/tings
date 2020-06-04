@@ -10,6 +10,11 @@
   "workspaces": {
     "packages": [
       "apps/*"
+    ],
+    "nohoist": [
+      "**/electron",
+      "**/electron-squirrel-startup",
+      "**/@electron-forge/**"
     ]
   }
 }
