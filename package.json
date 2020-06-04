@@ -12,9 +12,9 @@
       "apps/*"
     ],
     "nohoist": [
+      "**/@electron-forge/**",
       "**/electron",
-      "**/electron-squirrel-startup",
-      "**/@electron-forge/**"
+      "**/electron-squirrel-startup"
     ]
   }
 }
